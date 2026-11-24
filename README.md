@@ -9,7 +9,7 @@
 On e-commerce platforms, customers provide both written reviews and star ratings (1–5 stars). However, these two signals frequently contradict each other—such as leaving a 5-star rating while complaining about receiving the wrong product color, or giving a low rating due to delivery issues despite praising the product. Relying solely on star ratings introduces severe **label noise** into customer satisfaction analytics.
 
 This study addresses 3-class Turkish sentiment analysis (*Positive*, *Neutral*, *Negative*) through a **two-stage experimental pipeline**:
-1. **Stage 1 (Controlled Benchmark):** Training and comparing 14 models across Traditional Linear/Probabilistic ML, Ensemble Trees, Deep Learning, and Transformer architectures on a large-scale Turkish review dataset (40,598 reviews).
+1. **Stage 1 (Controlled Benchmark):** Training and comparing 13 models across Traditional Linear/Probabilistic ML, Ensemble Trees, Deep Learning, and Transformer architectures on a large-scale Turkish review dataset (40,598 reviews).
 2. **Stage 2 (Real-World Generalization & Mismatch Detection):** Evaluating the top-performing model on a custom real-world dataset collected from **Trendyol** (500 reviews) to detect mismatches between written review sentiment and user-assigned star ratings, supported by a granular qualitative error analysis.
 
 ---
@@ -19,7 +19,7 @@ Developed as part of the Machine Learning course at **Kahramanmaraş Sütçü İ
 
 * **Serap YÜCEL** *(My Contributions — Included in this Repository)*:
   * **Custom Dataset Engineering:** Collected, structured, and annotated the real-world **Trendyol test dataset (500 reviews)** with rich metadata (brand, product, size, gender, date, star rating, and sentiment labels).
-  * **Model Architecture & Training:** Implemented and trained the Deep Learning and Transformer pipelines (`BERT`, `BERTurk`, `CNN + BiLSTM`, `BiLSTM`, `LSTM`) alongside ensemble tree models (`XGBoost`, `Random Forest`).
+  * **Model Architecture & Training (6 Models):** Implemented and trained the Deep Learning and Transformer pipelines (`BERT`, `BERTurk`, `CNN + BiLSTM`, `BiLSTM`) alongside ensemble tree models (`XGBoost`, `Random Forest`).
   * **Real-World Evaluation & Error Analysis:** Designed the Stage 2 inference pipeline on Trendyol data, conducted the 500-sample mismatch audit (identifying 150 label–text discrepancies), and analyzed prediction confidence distributions.
 * **Meltem FISTIK & Ayşe ELGÖRMÜŞ** *(Team Members)*:
   * Implemented and benchmarked the 7 traditional linear/probabilistic baseline classifiers (*Logistic Regression, Linear SVM, SGD Logistic, SGD SVM, Ridge Classifier, Multinomial Naive Bayes, Complement Naive Bayes*).
@@ -78,7 +78,6 @@ An in-depth audit of all 500 Trendyol reviews revealed **350 exact matches** and
 ├── berttürk.ipynb              # Fine-tuning Turkish-specific BERTurk model & evaluation
 ├── cnn+bilstm hibrit.ipynb     # Hybrid CNN + BiLSTM architecture for local n-gram & sequence learning
 ├── bilstm.ipynb                # Bidirectional LSTM implementation & learning curves
-├── lstm.ipynb                  # Baseline LSTM sequence model
 ├── xgboost.ipynb               # XGBoost classifier with TF-IDF & confidence distribution analysis
 ├── randomforest.ipynb          # Random Forest classifier with TF-IDF & confusion matrix
 └── ml proje.xlsx               # Custom-compiled Trendyol test dataset (500 annotated reviews)
