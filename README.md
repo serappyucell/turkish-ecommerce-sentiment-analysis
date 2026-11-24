@@ -19,7 +19,7 @@ Developed as part of the Machine Learning course at **Kahramanmaraş Sütçü İ
 
 * **Serap YÜCEL** *(My Contributions — Included in this Repository)*:
   * **Custom Dataset Engineering:** Collected, structured, and annotated the real-world **Trendyol test dataset (500 reviews)** with rich metadata (brand, product, size, gender, date, star rating, and sentiment labels).
-  * **Model Architecture & Training (7 Models):** Implemented and trained the Deep Learning and Transformer pipelines (`BERT`, `BERTurk`, `CNN + BiLSTM`, `BiLSTM`, `LSTM`) alongside ensemble tree models (`XGBoost`, `Random Forest`).
+  * **Model Architecture & Training:** Implemented and trained the Deep Learning and Transformer pipelines (`BERT`, `BERTurk`, `CNN + BiLSTM`, `BiLSTM`, `LSTM`) alongside ensemble tree models (`XGBoost`, `Random Forest`).
   * **Real-World Evaluation & Error Analysis:** Designed the Stage 2 inference pipeline on Trendyol data, conducted the 500-sample mismatch audit (identifying 150 label–text discrepancies), and analyzed prediction confidence distributions.
 * **Meltem FISTIK & Ayşe ELGÖRMÜŞ** *(Team Members)*:
   * Implemented and benchmarked the 7 traditional linear/probabilistic baseline classifiers (*Logistic Regression, Linear SVM, SGD Logistic, SGD SVM, Ridge Classifier, Multinomial Naive Bayes, Complement Naive Bayes*).
@@ -33,21 +33,20 @@ Developed as part of the Machine Learning course at **Kahramanmaraş Sütçü İ
 **NLP Preprocessing & Feature Representation:**
 * **Text Normalization:** Lowercasing; removal of punctuation, numbers, special characters, and Turkish stop-words.
 * **Feature Extraction:**
-  * *Tree & Linear Models:* Sparse high-dimensional vectors via **TF-IDF** (Term Frequency–Inverse Document Frequency).
-  * *Deep Learning & Transformers:* Dense contextual **Word Embeddings** ($w_i \rightarrow \mathbf{e}_i \in \mathbb{R}^d$) and subword tokenization (`BERT` & `BERTurk` tokenizers handling Turkish agglutinative morphology).
+  * *Tree & Linear Models:** Sparse high-dimensional vectors via **TF-IDF** (Term Frequency–Inverse Document Frequency).
+  * *Deep Learning & Transformers:** Dense contextual **Word Embeddings** ($w_i \rightarrow \mathbf{e}_i \in \mathbb{R}^d$) and subword tokenization (`BERT` & `BERTurk` tokenizers handling Turkish agglutinative morphology).
 
 ---
 
 ## 📊 Experimental Results
 
-### Stage 1: Controlled Test Set Performance (My 7 Models — Hugging Face Dataset)
+### Stage 1: Controlled Test Set Performance (Hugging Face Dataset)
 While traditional linear baselines achieved up to **78.28%** test accuracy (Linear SVM), ensemble trees, deep sequential networks, and transformer models significantly outperformed them. **BERT** and **BERTurk** achieved the highest and most balanced generalization across all metrics without overfitting:
 
 | Model Family | Model | Test Accuracy | Test Precision | Test Recall | Test F1-Score |
 | :--- | :--- | :---: | :---: | :---: | :---: |
 | **Ensemble Trees** | Random Forest (TF-IDF) | 89.63% | 86.87% | 91.45% | 88.46% |
 | **Ensemble Trees** | XGBoost (TF-IDF) | 89.96% | 89.16% | 89.35% | 89.15% |
-| **Deep Learning** | LSTM (Baseline) | *See `lstm.ipynb`* | *See `lstm.ipynb`* | *See `lstm.ipynb`* | *See `lstm.ipynb`* |
 | **Deep Learning** | BiLSTM | 90.55% | 88.73% | 91.49% | 89.87% |
 | **Deep Learning** | CNN + BiLSTM (Hybrid) | 90.69% | 88.41% | 92.18% | 89.91% |
 | **Transformer** | BERTurk (`dbmdz/bert-base-turkish-cased`) | 96.65% | 96.61% | 96.65% | 96.63% |
